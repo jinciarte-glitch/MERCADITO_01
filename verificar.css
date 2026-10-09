@@ -1,0 +1,86 @@
+/* verificar.css — pantalla de activación de cuenta.
+   Se apoya en base.css y login.css: acá sólo va lo propio de esta página. */
+
+/* Campo del código: dígitos grandes y separados, como en el correo. */
+.verif-codigo{
+  font-family:'Work Sans', sans-serif;
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:10px;
+  text-align:center;
+  padding-left:10px; /* compensa el espaciado del último dígito */
+}
+.verif-codigo::placeholder{ letter-spacing:10px; opacity:.35; font-weight:600; }
+
+/* Avisos (link vencido, correo reenviado). */
+.verif-aviso{
+  margin:0 0 18px;
+  padding:11px 14px;
+  border-radius:var(--radius-md);
+  font-size:14px;
+  line-height:1.5;
+  border:1.5px solid var(--color-accent);
+  background:var(--color-bg-card);
+  color:var(--color-text);
+}
+.verif-aviso-error{ border-color:#c0563c; }
+
+/* Nota bajo el correo en el formulario de registro (api/login.php). */
+.verif-nota{
+  margin:-4px 0 18px;
+  font-size:13px;
+  line-height:1.5;
+  color:var(--color-text-soft, #6f5a48);
+}
+
+.verif-reenviar{
+  margin:16px 0 0;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--color-text-soft, #6f5a48);
+  text-align:center;
+}
+.verif-reenviar button{
+  background:none;
+  border:none;
+  padding:0;
+  font:inherit;
+  color:var(--color-accent);
+  font-weight:600;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.verif-reenviar button:disabled{ opacity:.55; cursor:default; }
+
+/* Pantalla de éxito. */
+.verif-resultado{ text-align:center; padding:12px 0 6px; }
+.verif-icono{
+  width:62px;
+  height:62px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--color-on-accent, #fff);
+  background:var(--color-accent);
+}
+.verif-icono svg{ width:30px; height:30px; }
+.verif-icono-error{ background:#c0563c; }
+.verif-boton-link{
+  display:inline-block;
+  margin-top:8px;
+  text-decoration:none;
+  text-align:center;
+}
+
+/* Datos que sólo aparecen en modo desarrollo, si el mail no salió. */
+.verif-debug{
+  margin-top:18px;
+  padding:12px 14px;
+  border:1px dashed var(--color-accent);
+  border-radius:var(--radius-md);
+  font-size:13px;
+  line-height:1.6;
+  word-break:break-all;
+}
+.verif-debug strong{ display:block; margin-bottom:4px; }

@@ -1,0 +1,233 @@
+/* ============================================================
+   shop.css — Página de Emprendedores (marketplace, tienda, editor)
+   Requiere base.css cargado antes.
+   ============================================================ */
+
+.shop-body{ background:var(--color-bg-page); min-height:100vh; }
+.shop-main{ max-width:1100px; margin:0 auto; padding:28px 20px 80px; }
+
+/* ---------- Buscador + filtros (marketplace) ---------- */
+.explore-toolbar{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+.explore-search{
+  flex:1 1 260px; padding:12px 16px; border-radius:var(--radius-md);
+  border:1px solid var(--color-border); background:var(--color-bg-input);
+  color:var(--color-text-strong); font:inherit;
+}
+.explore-search:focus{ outline:none; background:var(--color-bg-input-focus); border-color:var(--color-accent); }
+
+.category-chips{ display:flex; gap:8px; flex-wrap:wrap; }
+.chip{
+  padding:8px 16px; border-radius:999px; border:1px solid var(--color-border);
+  background:var(--color-bg-card); color:var(--color-text-muted); font-size:14px;
+  cursor:pointer; transition:.15s;
+}
+.chip.active, .chip:hover{ background:var(--color-accent); color:var(--color-on-accent); border-color:var(--color-accent); }
+
+/* ---------- Grid de emprendimientos (scroll infinito) ---------- */
+.shop-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; margin-top:22px; }
+.shop-card{
+  background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .15s;
+}
+.shop-card:hover{ transform:translateY(-3px); }
+.shop-card-banner{ height:100px; background:linear-gradient(135deg,var(--brown-500),var(--brown-700)); }
+.shop-card-body{ padding:14px 16px; }
+.shop-card-avatar{
+  width:56px; height:56px; border-radius:50%; border:3px solid var(--color-bg-card);
+  margin-top:-38px; background:var(--brown-300); object-fit:cover;
+}
+.shop-card-name{ font-family:'Fraunces',serif; font-weight:600; margin:8px 0 2px; color:var(--color-text-strong); }
+.shop-card-desc{ font-size:13px; color:var(--color-text-muted); line-height:1.4; }
+.loader-sentinel{ text-align:center; padding:24px; color:var(--color-text-faint); font-size:14px; }
+
+/* ---------- Página pública de tienda (plantilla única del MVP) ---------- */
+.shop-banner{
+  height:180px; border-radius:var(--radius-lg); background:linear-gradient(135deg,var(--brown-500),var(--brown-900));
+  position:relative; margin-bottom:52px;
+}
+.shop-header{ display:flex; align-items:flex-end; gap:16px; margin-top:-40px; padding:0 8px; }
+.shop-avatar{
+  width:96px; height:96px; border-radius:50%; border:4px solid var(--color-bg-page);
+  background:var(--brown-300); object-fit:cover; flex-shrink:0;
+}
+.shop-title{ display:flex; align-items:center; gap:6px; font-family:'Fraunces',serif; font-size:22px; font-weight:700; color:var(--color-text-strong); }
+.shop-verified{ width:18px; height:18px; color:var(--color-accent); }
+.shop-desc{ color:var(--color-text-muted); font-size:14px; margin-top:4px; max-width:520px; }
+
+.shop-tabs{ display:flex; gap:22px; border-bottom:1px solid var(--color-border); margin:24px 0; }
+.shop-tab{ padding:10px 2px; color:var(--color-text-muted); font-size:14px; cursor:pointer; border-bottom:2px solid transparent; }
+.shop-tab.active{ color:var(--color-accent-strong); border-color:var(--color-accent-strong); font-weight:600; }
+
+.catalog-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; }
+.product-card{ background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius-md); overflow:hidden; }
+.product-img{ width:100%; aspect-ratio:1/1; background:var(--brown-100); object-fit:cover; }
+.product-info{ padding:10px 12px; }
+.product-name{ font-size:14px; font-weight:600; color:var(--color-text-strong); }
+.product-price{ font-size:13px; color:var(--color-accent-strong); font-weight:600; margin-top:2px; }
+
+/* ---------- Editor "Mi espacio" (emprendedor) ---------- */
+.editor-layout{ display:grid; grid-template-columns:220px 1fr; gap:24px; }
+.editor-nav{ display:flex; flex-direction:column; gap:4px; }
+.editor-nav button{
+  text-align:left; padding:10px 14px; border-radius:var(--radius-sm); border:none;
+  background:transparent; color:var(--color-text-muted); font:inherit; cursor:pointer;
+}
+.editor-nav button.active{ background:var(--color-bg-hover); color:var(--color-accent-strong); font-weight:600; }
+
+.editor-panel{ background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:24px; }
+.editor-panel h3{ font-family:'Fraunces',serif; margin:0 0 16px; color:var(--color-text-strong); }
+.field-group{ margin-bottom:16px; }
+.field-group label{ display:block; font-size:13px; color:var(--color-text-muted); margin-bottom:6px; }
+.field-group input, .field-group textarea{
+  width:100%; padding:10px 14px; border-radius:var(--radius-sm); border:1px solid var(--color-border);
+  background:var(--color-bg-input); color:var(--color-text-strong); font:inherit;
+}
+.upload-box{
+  border:2px dashed var(--color-border-strong); border-radius:var(--radius-md); padding:22px;
+  text-align:center; color:var(--color-text-faint); font-size:13px; cursor:pointer;
+}
+.product-list-item{ display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--color-border); }
+.product-list-item img{ width:48px; height:48px; border-radius:8px; object-fit:cover; background:var(--brown-100); }
+.product-list-item .grow{ flex:1; }
+.product-list-item .price{ color:var(--color-accent-strong); font-weight:600; font-size:13px; }
+.btn-danger-ghost{ background:none; border:none; color:var(--color-error); cursor:pointer; font-size:13px; }
+
+@media (max-width:720px){
+  .editor-layout{ grid-template-columns:1fr; }
+  .editor-nav{ flex-direction:row; overflow-x:auto; }
+}
+
+/* ============================================================
+   Añadidos: intro del marketplace, estados vacíos, previews de
+   imagen del editor, y detalles de la tarjeta de tienda.
+   ============================================================ */
+
+/* Intro del marketplace */
+.explore-intro{ margin-bottom:18px; }
+.explore-title{ font-size:28px; margin:0 0 4px; color:var(--color-text-strong); }
+.explore-sub{ color:var(--color-text-muted); font-size:14px; margin:0; }
+
+/* Estado vacío genérico */
+.empty-state{
+  text-align:center; padding:40px 20px; color:var(--color-text-faint);
+  font-size:14px; border:1px dashed var(--color-border-strong);
+  border-radius:var(--radius-lg); margin-top:22px;
+}
+
+/* Tarjeta de tienda: categoría + check */
+.shop-card-cat{
+  display:inline-block; font-size:11px; font-weight:600; margin:2px 0 6px;
+  padding:2px 8px; border-radius:999px;
+  background:var(--color-badge-bg); color:var(--color-badge-text);
+}
+.shop-card-name .shop-verified{ width:14px; height:14px; color:var(--color-accent); vertical-align:middle; }
+
+/* Página pública de tienda */
+.shop-header{ position:relative; }
+.shop-back{ margin-left:auto; align-self:flex-start; }
+.shop-info-row{ color:var(--color-text-muted); font-size:14px; margin:0 0 8px; }
+.product-img-empty{
+  width:100%; aspect-ratio:1/1;
+  background:linear-gradient(135deg,var(--color-bg-hover),var(--color-border));
+}
+
+/* Encabezado de "Mi espacio" */
+.espacio-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+
+/* Selects del editor (mismo look que los inputs) */
+.field-group select{
+  width:100%; padding:10px 14px; border-radius:var(--radius-sm);
+  border:1px solid var(--color-border); background:var(--color-bg-input);
+  color:var(--color-text-strong); font:inherit;
+}
+
+/* Vista previa de imágenes por URL */
+.img-preview{
+  margin-top:10px; width:96px; height:96px; border-radius:var(--radius-md);
+  background-size:cover; background-position:center;
+  border:1px dashed var(--color-border-strong); display:none;
+}
+.img-preview.img-preview-wide{ width:100%; height:120px; }
+.img-preview.has-img{ display:block; border-style:solid; }
+
+/* Miniatura vacía en la lista de productos del editor */
+.product-thumb-empty{
+  width:48px; height:48px; border-radius:8px;
+  background:linear-gradient(135deg,var(--color-bg-hover),var(--color-border));
+}
+
+/* ---- Header de la tienda: agrupo "Volver" + "Enviar mensaje" para que
+       no se desacomoden y queden alineados a la derecha ---- */
+.shop-header{ flex-wrap:wrap; }
+.shop-header-info{ flex:1 1 220px; min-width:0; }
+.shop-actions{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  align-self:flex-end;
+  flex-shrink:0;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.shop-actions .shop-back{ margin-left:0; align-self:auto; }
+.shop-message-btn{ white-space:nowrap; }
+@media (max-width:560px){
+  .shop-actions{ width:100%; margin-left:0; justify-content:flex-start; margin-top:6px; }
+}
+
+/* ---- Modal: hacer un reclamo (mismo patrón que fl-modal de usuario.css) ---- */
+.fl-modal{ position: fixed; inset: 0; z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.fl-backdrop{ position: absolute; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(2px); }
+.fl-panel{
+  position: relative; width: min(420px, 92vw); max-height: 85vh;
+  background: var(--color-bg-card); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); display: flex; flex-direction: column;
+  overflow: hidden; box-shadow: 0 20px 60px var(--color-shadow);
+}
+.fl-head{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-bottom: 1px solid var(--color-border);
+  font-weight: 800; color: var(--color-text-strong);
+}
+.fl-head button{ background: transparent; border: none; font-size: 16px; cursor: pointer; color: var(--color-text-muted); }
+
+/* ---- Cartel de "Hacer un reclamo": un cartel grande centrado, no un modal chico ---- */
+.reclamo-cartel{
+  position: relative;
+  width: min(480px, 92vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px var(--color-shadow);
+  padding: 36px 32px 32px;
+  text-align: center;
+  animation: reclamo-cartel-in .18s ease-out;
+}
+@keyframes reclamo-cartel-in{
+  from{ opacity: 0; transform: scale(.94) translateY(8px); }
+  to{ opacity: 1; transform: scale(1) translateY(0); }
+}
+.reclamo-cartel-close{
+  position: absolute; top: 16px; right: 16px;
+  background: transparent; border: none; font-size: 16px; cursor: pointer;
+  color: var(--color-text-muted); width: 32px; height: 32px; border-radius: 50%;
+}
+.reclamo-cartel-close:hover{ background: var(--color-bg-hover); }
+.reclamo-cartel-icon{ font-size: 40px; line-height: 1; margin-bottom: 12px; }
+.reclamo-cartel-title{
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  margin: 0 0 8px;
+  color: var(--color-text-strong);
+}
+.reclamo-cartel-sub{
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin: 0;
+}
+@media (max-width:560px){
+  .reclamo-cartel{ padding: 28px 20px 24px; }
+}

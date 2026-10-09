@@ -1,0 +1,195 @@
+/* ============================================================
+   feed.css — específico de la página de red social (feed)
+   Requiere base.css cargado antes.
+   ============================================================ */
+
+body.feed-body{ padding-bottom:40px; }
+
+
+
+/* ---------- SHELL / LAYOUT ---------- */
+.feed-shell{
+  max-width:920px;
+  margin:0 auto;
+  padding:28px 24px 0;
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:24px;
+  align-items:start;
+}
+
+.profile-sidebar{ position:sticky; top:88px; }
+
+/* ---------- PROFILE CARD ---------- */
+.profile-card{ padding:26px 22px; text-align:center; }
+.profile-avatar-wrap{ position:relative; display:inline-block; margin-bottom:12px; }
+.profile-card .avatar-lg{ border:3px solid var(--color-bg-card); box-shadow:0 0 0 2px var(--color-border-strong); }
+
+.profile-name{
+  font-size:17px;
+  font-weight:700;
+  margin:0 0 4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.profile-bio{
+  font-size:13.5px;
+  color:var(--color-text-muted);
+  line-height:1.5;
+  margin:0 0 16px;
+  white-space:pre-wrap;
+}
+.profile-stats{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  padding:14px 0;
+  margin-bottom:16px;
+  border-top:1px solid var(--color-border);
+  border-bottom:1px solid var(--color-border);
+}
+.profile-stat{ display:flex; flex-direction:column; align-items:center; }
+.profile-stat strong{ font-size:16px; color:var(--color-text-strong); }
+.profile-stat span{ font-size:11.5px; color:var(--color-text-muted); }
+
+.profile-edit-form{ display:flex; flex-direction:column; gap:14px; text-align:left; margin-top:6px; }
+.profile-type-row{ display:flex; gap:8px; }
+.profile-type-option{
+  flex:1;
+  text-align:center;
+  padding:9px 6px;
+  border-radius:var(--radius-md);
+  border:1.5px solid var(--color-border-strong);
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--color-text-muted);
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.profile-type-option input{ display:none; }
+.profile-type-option.active{
+  background:var(--color-accent);
+  border-color:var(--color-accent);
+  color:var(--color-on-accent);
+}
+.profile-edit-actions{ display:flex; gap:8px; }
+.profile-edit-actions .btn-primary,
+.profile-edit-actions .btn-secondary{ flex:1; }
+
+/* ---------- ZONA CERCANA (filtro estilo Marketplace) ---------- */
+.zone-card{ padding:16px 18px; margin:20px 0 0; display:flex; flex-direction:column; gap:10px; }
+.zone-row{ display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.zone-info{ display:flex; gap:10px; align-items:center; min-width:0; }
+.zone-pin{ font-size:22px; }
+.zone-text{ display:flex; flex-direction:column; }
+.zone-text strong{ font-size:14.5px; }
+.zone-status{ font-size:12.5px; color:var(--color-text-muted); }
+.zone-controls{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.zone-radius-label{ font-size:12.5px; font-weight:600; color:var(--color-text-muted); display:flex; align-items:center; gap:6px; }
+.zone-radius-label select{
+  font:inherit; font-size:13px; font-weight:600;
+  padding:8px 10px; border-radius:var(--radius-md);
+  border:1.5px solid var(--color-border); background:var(--color-bg-input); color:var(--color-text-strong);
+}
+.zone-btn{ padding:9px 14px; font-size:13px; }
+.zone-check{ display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--color-text-muted); cursor:pointer; }
+.zone-hint{ font-size:12px; color:var(--color-text-faint); margin:0; }
+.post-loc{ font-weight:600; color:var(--color-accent); white-space:nowrap; }
+
+/* ---------- COMPOSER ---------- */
+.composer-card{ padding:18px 20px; margin:20px 0px; }
+.composer-top{ display:flex; gap:12px; margin-bottom:12px; }
+.composer-top textarea{ min-height:64px; }
+.composer-bottom{ display:flex; gap:10px; align-items:center; }
+.composer-bottom .field{ flex:1; margin:0; }
+.composer-bottom input{ padding:9px 12px; font-size:13.5px; }
+.composer-bottom .btn-primary{ white-space:nowrap; }
+
+/* ---------- POSTS ---------- */
+.posts-list{ display:flex; flex-direction:column; gap:16px; }
+
+.post-card{ padding:18px 20px 14px; cursor:pointer;}
+.post-header{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.post-header-meta{ display:flex; flex-direction:column; }
+.post-author{ font-size:14.5px; font-weight:700; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.post-time{ font-size:12px; color:var(--color-text-faint); }
+
+.post-text{
+  font-size:14.5px;
+  line-height:1.6;
+  color:var(--color-text-strong);
+  margin:0 0 12px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.post-image{
+  width:100%;
+  max-height:360px;
+  object-fit:cover;
+  border-radius:var(--radius-md);
+  margin-bottom:12px;
+  background:var(--color-bg-hover);
+  display:block;
+}
+
+.post-actions{
+  display:flex;
+  gap:6px;
+  padding-top:8px;
+  border-top:1px solid var(--color-border);
+}
+
+.comments-section{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--color-border);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.comments-section[hidden]{ display:none; }
+
+.comment{ display:flex; gap:10px; }
+.comment-bubble{
+  background:var(--color-bg-input);
+  border-radius:var(--radius-md);
+  padding:8px 12px;
+  flex:1;
+}
+.comment-author{ font-size:12.5px; font-weight:700; margin-right:6px; }
+.comment-time{ font-size:11px; color:var(--color-text-faint); }
+.comment-text{ font-size:13.5px; margin:2px 0 0; color:var(--color-text-strong); }
+
+.comment-form{ display:flex; gap:8px; align-items:center; }
+.comment-form input{ flex:1; padding:9px 12px; font-size:13.5px; }
+
+.empty-state{
+  text-align:center;
+  padding:36px 20px;
+  color:var(--color-text-muted);
+  font-size:14px;
+}
+
+@media (max-width:780px){
+  .feed-shell{ grid-template-columns:1fr; padding:20px 16px 0; }
+  .profile-sidebar{ position:static; }
+  .composer-top{ flex-direction:column; }
+  .composer-bottom{ flex-wrap:wrap; }
+}
+
+/* El nombre de archivo elegido ocupa el espacio del medio para que
+   "Publicar" quede a la derecha */
+.composer-bottom .file-chosen{ flex:1; max-width:none; }
+
+/* Autor clickeable en las publicaciones (lleva a su perfil) */
+.post-author-link{ text-decoration:none; color:inherit; }
+.post-author-link:hover .post-author{ text-decoration:underline; }
+.post-header .avatar{ transition:opacity .15s ease; }
+.post-author-link:hover .avatar{ opacity:.85; }
+
+/* Botón "compartir" activo (cuando ya lo compartiste) */
+.share-btn.active{ color:var(--color-accent); }
